@@ -17,8 +17,6 @@ app.use((req, res, next) => {
 });
 
 
-
-
 app.use(
   session({
     secret: "kedsgbdkekeke",
@@ -26,8 +24,6 @@ app.use(
     saveUninitialized: false,
   })
 );
-
-
 
 
 //loginn
@@ -69,9 +65,9 @@ app.get('/home', (req,res) => {
 
 app.post('/logout', (req, res) => {
     req.session.destroy(err => {
-    if (err) return res.send("Error while logging out");
-    res.clearCookie("connect.sid");
-    res.redirect("/");
+      if (err) return res.send("Error while logging out");
+      res.clearCookie("connect.sid");
+      res.redirect("/");
   });
 })
 
